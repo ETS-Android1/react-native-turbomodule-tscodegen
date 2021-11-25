@@ -3,7 +3,7 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "react-native-multiply-module"
+  s.name         = "MultiplyModule"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.homepage     = package["homepage"]
@@ -13,7 +13,9 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/blu3beri/react-native-multiply-module.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp}"
+  s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp}", "lib/cpp-generated/*.{h,cpp}"
 
   s.dependency "React-Core"
+  s.dependency "ReactCommon/turbomodule/core"
+
 end

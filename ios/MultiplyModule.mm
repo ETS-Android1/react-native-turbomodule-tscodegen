@@ -1,19 +1,31 @@
 #import "MultiplyModule.h"
-#import "react-native-multiply-module.h"
+#import "../lib/cpp-generated/NativeModules.h"
+#import "../cpp/react-native-multiply-module.h"
 
+#import <cxxreact/CxxModule.h>
+
+using namespace facebook;
+
+// ObjC++ wrapper.
 @implementation MultiplyModule
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE();
 
-// Example method for C++
-// See the implementation of the example module in the `cpp` folder
-RCT_EXPORT_METHOD(multiply:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
-                  withResolver:(RCTPromiseResolveBlock)resolve
-                  withReject:(RCTPromiseRejectBlock)reject)
+- (std::shared_ptr<react::TurboModule>)getTurboModuleWithJsInvoker:(std::shared_ptr<react::CallInvoker>)jsInvoker
 {
-    NSNumber *result = @(example::multiply([a floatValue], [b floatValue]));
+  return std::make_shared<MultiplyModuleCxxSpecJSI>(jsInvoker);
+}
 
-    resolve(result);
+- (std::unique_ptr<xplat::module::CxxModule>)createModule
+{
+  return nullptr;
+}
+
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
+    (const facebook::react::ObjCTurboModule::InitParams &)params
+{
+  return nullptr;
 }
 
 @end
+

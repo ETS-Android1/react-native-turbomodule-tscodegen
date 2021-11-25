@@ -1,11 +1,8 @@
-#import <React/RCTBridgeModule.h>
+#pragma once
 
-#ifdef __cplusplus
+#import "../node_modules/react-native/React/CxxModule/RCTCxxModule.h"
+#import <ReactCommon/RCTTurboModule.h>
 
-#import "react-native-multiply-module.h"
-
-#endif
-
-@interface MultiplyModule : NSObject <RCTBridgeModule>
+@interface MultiplyModule : RCTCxxModule <RCTTurboModule>
 
 @end
