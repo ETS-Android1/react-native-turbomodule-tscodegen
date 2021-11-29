@@ -1,8 +1,16 @@
-#ifndef EXAMPLE_H
-#define EXAMPLE_H
+#import "../lib/cpp-generated/NativeModules.h"
 
-namespace example {
-  int multiply(float a, float b);
+#include <jsi/jsilib.h>
+#include <jsi/jsi.h>
+
+namespace facebook {
+namespace react {
+
+class NativeMultiply : public MultiplyModuleCxxSpecJSI {
+    using MultiplyModuleCxxSpecJSI::MultiplyModuleCxxSpecJSI;
+public:
+    double multiply(jsi::Runtime &rt, double a, double b);
+};
+
 }
-
-#endif /* EXAMPLE_H */
+}

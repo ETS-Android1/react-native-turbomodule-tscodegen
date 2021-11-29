@@ -1,8 +1,7 @@
-#pragma once
+#import <React/RCTBridgeModule.h>
 
-#import "../node_modules/react-native/React/CxxModule/RCTCxxModule.h"
-#import <ReactCommon/RCTTurboModule.h>
+@interface MultiplyModule : NSObject <RCTBridgeModule>
 
-@interface MultiplyModule : RCTCxxModule <RCTTurboModule>
+@property(nonatomic, assign) BOOL setBridgeOnMainQueue;
 
 @end

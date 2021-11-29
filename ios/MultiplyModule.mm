@@ -1,31 +1,42 @@
 #import "MultiplyModule.h"
-#import "../lib/cpp-generated/NativeModules.h"
-#import "../cpp/react-native-multiply-module.h"
+#import "react-native-multiply-module.h"
 
-#import <cxxreact/CxxModule.h>
+#include "TurboUtilsModule.h"
+#include "Logging.h"
+
+#import <React/RCTBridge+Private.h>
+#import <React/RCTUtils.h>
+#import <ReactCommon/RCTTurboModuleManager.h>
+#import <jsi/jsi.h>
+#import <memory>
 
 using namespace facebook;
 
-// ObjC++ wrapper.
 @implementation MultiplyModule
+@synthesize bridge=_bridge;
+@synthesize methodQueue = _methodQueue;
 
-RCT_EXPORT_MODULE();
+RCT_EXPORT_MODULE()
 
-- (std::shared_ptr<react::TurboModule>)getTurboModuleWithJsInvoker:(std::shared_ptr<react::CallInvoker>)jsInvoker
-{
-  return std::make_shared<MultiplyModuleCxxSpecJSI>(jsInvoker);
++ (BOOL)requiresMainQueueSetup {
+  return YES;
 }
 
-- (std::unique_ptr<xplat::module::CxxModule>)createModule
-{
-  return nullptr;
-}
+- (void)setBridge:(RCTBridge *)bridge {
+  _bridge = bridge;
+  
+  LOG("JSI Module initialization in setBridge()");
 
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
-{
-  return nullptr;
+  RCTCxxBridge *cxxBridge = (RCTCxxBridge *)self.bridge;
+  if (!cxxBridge.runtime) {
+    return;
+  }
+  
+  jsi::Runtime* jsiRuntime = (jsi::Runtime *)cxxBridge.runtime;
+  auto callInvoker = bridge.jsCallInvoker;
+  
+  // init turbo module
+  turboutils::installTurboModule(*jsiRuntime, callInvoker);
 }
 
 @end
-

@@ -1,13 +1,11 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import spec from 'react-native-multiply-module';
+import { StyleSheet, Text, View } from 'react-native';
+import { MyUtilsTurbo } from 'react-native-multiply-module';
 
 export default function App() {
-  console.log(spec);
   return (
     <View style={styles.container}>
-      <Text>Result: {spec.multiply(10, 20)}</Text>
+      <Text>Result: {MyUtilsTurbo.multiply(10230, 210000)}</Text>
     </View>
   );
 }

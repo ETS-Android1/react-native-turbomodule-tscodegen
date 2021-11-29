@@ -1,3 +1,4 @@
-import spec from './turboModule';
+import type { Spec } from './turboModule';
 
-export default spec;
+declare var _myUtilsTurboModule: Spec;
+export const MyUtilsTurbo = _myUtilsTurboModule;

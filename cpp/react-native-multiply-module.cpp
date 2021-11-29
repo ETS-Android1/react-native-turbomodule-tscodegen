@@ -1,7 +1,8 @@
 #include "react-native-multiply-module.h"
 
-namespace example {
-	int multiply(float a, float b) {
-		return a * b;
-	}
+using namespace facebook;
+using namespace react;
+
+double NativeMultiply::multiply(jsi::Runtime &rt, double a, double b) {
+    return a * b;
 }
