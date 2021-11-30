@@ -1,3 +1,9 @@
+// Utility method that registers the module on the global property in JS. This
+// creates a poiinter to the turboModule implementation, creates a jsi object
+// from it and registers on `global` with the key of `name`. as specified on
+// line 14. This is not exposed to the user and only in the module itself.
+// Change the `name` constant to something that fits your use case.
+
 #include <jsi/jsilib.h>
 
 #include "TurboUtilsModule.h"
@@ -5,17 +11,19 @@
 
 #include "react-native-multiply-module.h"
 
-namespace turboutils
-{
-  void installTurboModule(jsi::Runtime& runtime, std::shared_ptr<react::CallInvoker> jsCallInvoker) {
+const char* name = "_turboModule";
 
-      std::shared_ptr<NativeMultiply> nativeModule =
+namespace utils {
+  void installTurboModule(jsi::Runtime& rt,
+      std::shared_ptr<CallInvoker> jsCallInvoker) {
+
+      // Register the turboModule as a pointer 
+      std::shared_ptr<NativeMultiply> turboModule =
               std::make_shared<NativeMultiply>(jsCallInvoker);
 
       // register UtilsTurboModule instance as global._myUtilsTurboModule
-      runtime.global().setProperty(
-              runtime,
-              "_myUtilsTurboModule",
-              jsi::Object::createFromHostObject(runtime, nativeModule));
+      rt.global().setProperty(rt,
+          name, 
+          jsi::Object::createFromHostObject(rt, turboModule));
   }
-} // namespace turboutils
+} // namespace utils

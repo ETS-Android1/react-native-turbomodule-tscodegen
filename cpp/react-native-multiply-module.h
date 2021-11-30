@@ -1,7 +1,12 @@
-#import "../lib/cpp-generated/NativeModules.h"
+// class "interface" of the generated code. This has to be copied over from
+// `../lib/cpp-generated/NativeModules.h`
+
+
+#include "NativeModules.h"
 
 #include <jsi/jsilib.h>
 #include <jsi/jsi.h>
+
 
 namespace facebook {
 namespace react {
@@ -12,5 +17,5 @@ public:
     double multiply(jsi::Runtime &rt, double a, double b);
 };
 
-}
-}
+} // namespace react
+} // namespace facebook

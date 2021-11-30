@@ -1,6 +1,6 @@
 import type { Spec } from './turboModule'
 
-declare var _myUtilsTurboModule: Spec
+declare var _turboModule: Spec
 
-export const turboModule = _myUtilsTurboModule as Spec
+export const turboModule = _turboModule as Spec
 export type TurboModuleType = Spec

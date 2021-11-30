@@ -1,6 +1,3 @@
-#ifndef TURBOUTILSMODULE_H
-#define TURBOUTILSMODULE_H
-
 #include <jsi/jsi.h>
 
 #ifdef __ANDROID__
@@ -9,13 +6,11 @@
   #include <ReactCommon/TurboModule.h>
 #endif
 
-namespace turboutils {
+namespace utils {
   using namespace facebook;
   using namespace react;
 
   /****** TURBO MODULE STUFF BELOW *******/
   void installTurboModule(jsi::Runtime& runtime,
-                          std::shared_ptr<react::CallInvoker> jsCallInvoker);
+                          std::shared_ptr<CallInvoker> jsCallInvoker);
 }
-
-#endif /* TURBOUTILSMODULE_H */
