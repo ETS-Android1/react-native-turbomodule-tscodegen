@@ -1,8 +1,7 @@
 # WORK IN PROGRESS
 
-# IOS IS WORKING
-
-# ANDROID IS BEING WORKED ON
+> IOS IS WORKING
+> ANDROID IS BEING WORKED ON
 
 # Worlds Fastest React Native Multiply Library
 
