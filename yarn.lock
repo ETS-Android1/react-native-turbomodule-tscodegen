@@ -2095,20 +2095,26 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-native@npm:react-native-tscodegen-types@VERSION", react-native-tscodegen-types@^0.67.3:
-  version "0.67.3"
-  resolved "https://registry.yarnpkg.com/react-native-tscodegen-types/-/react-native-tscodegen-types-0.67.3.tgz#e740c79e1a234edc2cdbfe1704788958afb12431"
-  integrity sha512-EiEiD8cXyF7TQwXD71Ecyhouo6WAjIkpa8SgwcV/YpOIgSMjVtgvUwlY28L7/BH8cLMMtg9db6f7iOdFsZWp+w==
+"@types/react-native@0.66.6":
+  version "0.66.6"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.66.6.tgz#08f5b93cca9a50b7d19f353ff2a1ebe1a7c24a79"
+  integrity sha512-VqC2wN5wNCXqL9/Fve/bI1C+Q8BJlkiF/JOs7Qfw5eeD//nk5Imw4KrB8UiZZ/TPMSXPWYiKvWHiiqgA99L69g==
   dependencies:
-    "@react-native/assets" "1.0.0"
-    "@types/react" "17.0.8"
-    "@types/react-native__assets" "1.0.0"
-    react-native "0.64.1"
+    "@types/react" "*"
 
 "@types/react-native__assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/react-native__assets/-/react-native__assets-1.0.0.tgz#5ae261d71b43560f5e4f05b7ce9212a2ff5fb02a"
   integrity sha512-9/VzYmiUPHdRJn1WwiG5TgKlLyyFyp7MaRzh4iTCTgWOcHQ9ZMjdUbwMHaXMp6F5fnrn4Oxk7LRR4flNz6VOBw==
+
+"@types/react@*":
+  version "17.0.37"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.37.tgz#6884d0aa402605935c397ae689deed115caad959"
+  integrity sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
 
 "@types/react@17.0.8":
   version "17.0.8"
@@ -7843,7 +7849,17 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
-react-native-tscodegen@^0.68.4:
+react-native-tscodegen-types@0.67.3:
+  version "0.67.3"
+  resolved "https://registry.yarnpkg.com/react-native-tscodegen-types/-/react-native-tscodegen-types-0.67.3.tgz#e740c79e1a234edc2cdbfe1704788958afb12431"
+  integrity sha512-EiEiD8cXyF7TQwXD71Ecyhouo6WAjIkpa8SgwcV/YpOIgSMjVtgvUwlY28L7/BH8cLMMtg9db6f7iOdFsZWp+w==
+  dependencies:
+    "@react-native/assets" "1.0.0"
+    "@types/react" "17.0.8"
+    "@types/react-native__assets" "1.0.0"
+    react-native "0.64.1"
+
+react-native-tscodegen@0.68.4:
   version "0.68.4"
   resolved "https://registry.yarnpkg.com/react-native-tscodegen/-/react-native-tscodegen-0.68.4.tgz#d8cbf523f8e20b9f0806fca8a24254a31df1f383"
   integrity sha512-N0AEJkFyUuOkt+nA128a0MfraPETvVmW9FW0lS6iSiWCwLkUZXhZH8YuKWVOSkmREspCBg2tSqYohvGdApv63A==

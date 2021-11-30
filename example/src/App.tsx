@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { MyUtilsTurbo } from 'react-native-multiply-module';
+import * as React from 'react'
+import { Text, View, StyleSheet } from 'react-native'
+import { turboModule } from 'react-native-multiply-module'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {MyUtilsTurbo.multiply(10230, 210000)}</Text>
+      <Text>Result: {turboModule.multiply(10230, 210000)}</Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -16,9 +16,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
+})

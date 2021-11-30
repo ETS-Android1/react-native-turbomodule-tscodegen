@@ -1,6 +1,4 @@
 #import "MultiplyModule.h"
-#import "react-native-multiply-module.h"
-
 #include "TurboUtilsModule.h"
 #include "Logging.h"
 
