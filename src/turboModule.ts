@@ -5,5 +5,5 @@ export interface Spec extends TurboModule {
   multiply(a: number, b: number): number
 }
 
-// We MUST export this accoridng to tscodegen. We are ignoring it however.
+// We MUST export this according to tscodegen. We are ignoring it however.
 export default TurboModuleRegistry.getEnforcing<Spec>('MultiplyModule') as Spec
