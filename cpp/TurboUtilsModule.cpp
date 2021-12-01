@@ -21,7 +21,7 @@ namespace utils {
       std::shared_ptr<NativeMultiply> turboModule =
               std::make_shared<NativeMultiply>(jsCallInvoker);
 
-      // register UtilsTurboModule instance as global._myUtilsTurboModule
+      // register UtilsTurboModule instance as global.`NAME`
       rt.global().setProperty(rt,
           name, 
           jsi::Object::createFromHostObject(rt, turboModule));

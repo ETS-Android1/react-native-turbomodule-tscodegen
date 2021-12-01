@@ -7,6 +7,9 @@
 using namespace facebook;
 using namespace react;
 
+std::shared_ptr<MultiplyModuleCxxSpecJSI> Create(std::shared_ptr<CallInvoker> jsInvoker) {
+    return std::shared_ptr<MultiplyModuleCxxSpecJSI>(new MultiplyModuleCxxSpecJSI(jsInvoker));
+}
 
 double NativeMultiply::multiply(jsi::Runtime &rt, double a, double b) {
     return a * b;
