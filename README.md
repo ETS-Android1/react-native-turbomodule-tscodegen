@@ -19,6 +19,12 @@ clone the project and run the following command:
 yarn && yarn example && pod install --project-directory=example/ios
 ```
 
+After this you can generate the cpp code using the following command. In the future this will be committed into git, but for now we re-generate it every time.
+
+```sh
+yarn tscodegen
+```
+
 After this we have to make some minor changes to the generated code. This might
 be possible without, but I lack the cpp knowledge to implement this without any
 minor changes.
