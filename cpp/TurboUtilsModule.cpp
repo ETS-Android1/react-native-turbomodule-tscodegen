@@ -13,17 +13,20 @@
 
 const char* name = "_turboModule";
 
+using namespace facebook;
+using namespace react;
+
 namespace utils {
   void installTurboModule(jsi::Runtime& rt,
       std::shared_ptr<CallInvoker> jsCallInvoker) {
 
-      // Register the turboModule as a pointer 
-      std::shared_ptr<NativeMultiply> turboModule =
-              std::make_shared<NativeMultiply>(jsCallInvoker);
+      // Register the turboModule as a pointer
+      std::shared_ptr<NativeMultiply> turboModule = std::make_shared<NativeMultiply>(jsCallInvoker);
 
-      // register UtilsTurboModule instance as global.`NAME`
+      // Register UtilsTurboModule instance as global.`NAME`
       rt.global().setProperty(rt,
-          name, 
+          name,
           jsi::Object::createFromHostObject(rt, turboModule));
   }
-} // namespace utils
+}
+
