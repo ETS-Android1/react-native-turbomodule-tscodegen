@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.license                = package["license"]
   s.authors                = package["author"]
   s.platforms              = { :ios => "11.0" }
-  s.source                 = { :git => "https://github.com/blu3beri/react-native-multiply-module.git", :tag => "#{s.version}" }
+  s.source                 = { :git => "https://github.com/blu3beri/react-native-multiply-module.git" }
 
   s.source_files           = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp}", "lib/cpp-generated/*.{h,cpp}"
 
@@ -46,11 +46,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.dependency "React"
-  s.dependency "React-Core"
-  s.dependency "React-jsi"
-  s.dependency "ReactCommon/turbomodule/core"
-  s.dependency "React-callinvoker"
-  s.dependency "#{folly_prefix}Folly"
+  s.ios.vendored_libraries = "./ios/multiply.a"
+
 
 end
