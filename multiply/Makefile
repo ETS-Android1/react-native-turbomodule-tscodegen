@@ -1,32 +1,18 @@
 build:
-	cargo build --target "aarch64-apple-darwin" 
-
-build-ios:
+	cargo build --target "aarch64-apple-ios-sim" 
 	cargo build --target "aarch64-apple-ios" 
 
-build-ios-sim:
-	cargo build --target "aarch64-apple-ios-sim"
+rename:
+	mv ./target/aarch64-apple-ios/debug/libmultiply.a ./target/aarch64-apple-ios/debug/libmultiply-device.a
+	mv ./target/aarch64-apple-ios-sim/debug/libmultiply.a ./target/aarch64-apple-ios-sim/debug/libmultiply-sim.a
 
-build-lipo:
-	cargo lipo --release
+header:
+	cbindgen --config cbindgen.toml --output rust_header.h
 
-headers:
-	cbindgen --config cbindgen.toml --crate multiply --output rust_multiply.h
+framework:
+	xcodebuild -create-xcframework \
+		          -library target/aarch64-apple-ios-sim/debug/libmultiply-sim.a \
+		          -library target/aarch64-apple-ios/debug/libmultiply-device.a -headers ./rust_header.h \
+							-output ../ios/Frameworks/multi.xcframework
 
-relocate:
-	mv ./target/aarch64-apple-ios/debug/libmultiply.a ../ios/libmultiply.a
-	mv ./rust_multiply.h ../cpp/rust_multiply.h
-
-relocate-sim:
-	mv ./target/aarch64-apple-ios-sim/debug/libmultiply.a ../ios/libmultiply.a
-	mv ./rust_multiply.h ../cpp/rust_multiply.h
-
-relocate-lipo:
-	cp ./target/universal/release/libmultiply.a ../ios/libmultiply.a
-	cp ./rust_multiply.h ../cpp/rust_multiply.h
-
-all: build-ios headers relocate
-
-sim: build-ios-sim headers relocate-sim
-
-lipo: build-lipo headers relocate-lipo
+all: build header rename framework

@@ -11,6 +11,13 @@ This is a library which uses [react-native-tscodegen](https://github.com/microso
 
 ## Getting started
 
+### Generating the framework
+
+```sh
+cd multiply
+make all
+```
+
 This demo is not finished and not perfect. To get started you need to have the react native environment setup complete and some basic knowledge of turbomodules.
 
 clone the project and run the following command:

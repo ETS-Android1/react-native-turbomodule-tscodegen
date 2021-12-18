@@ -37,12 +37,16 @@ Pod::Spec.new do |s|
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++14",
     "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/#{folly_prefix}Folly\"",
     "OTHER_CFLAGS" => "$(inherited)" + " " + folly_flags,
+      "OTHER_LDFLAGS" => "-lmultiply"
   }
   s.pod_target_xcconfig = {
       "DEFINES_MODULE" => "YES",
       "USE_HEADERMAP" => "YES",
-      "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/ReactCommon\" \"$(PODS_TARGET_SRCROOT)\" \"$(PODS_ROOT)/#{folly_prefix}Folly\" \"$(PODS_ROOT)/Headers/Private/React-Core\" "
+      "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/ReactCommon\" \"$(PODS_TARGET_SRCROOT)\" \"$(PODS_ROOT)/#{folly_prefix}Folly\" \"$(PODS_ROOT)/Headers/Private/React-Core\" ",
+      "OTHER_LDFLAGS" => "-lmultiply"
   }
+
+  s.ios.vendored_frameworks = "./multiply/multi.xcframework"
 
   s.requires_arc = true
 
