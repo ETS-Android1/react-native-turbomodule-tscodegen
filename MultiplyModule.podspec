@@ -29,14 +29,14 @@ Pod::Spec.new do |s|
   s.license                = package["license"]
   s.authors                = package["author"]
   s.platforms              = { :ios => "11.0" }
-  s.source                 = { :git => "https://github.com/blu3beri/react-native-multiply-module.git" }
+  s.source                 = { :git => "https://github.com/blu3beri/react-native-multiply-module.git", :tag => "#{s.version}" }
 
-  s.source_files           = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp}", "lib/cpp-generated/*.{h,cpp}"
+  s.source_files           = "ios/**/*.{h,m,mm,a}", "cpp/**/*.{h,cpp}", "lib/cpp-generated/*.{h,cpp}"
 
   s.xcconfig = {
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++14",
     "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/#{folly_prefix}Folly\"",
-    "OTHER_CFLAGS" => "$(inherited)" + " " + folly_flags  
+    "OTHER_CFLAGS" => "$(inherited)" + " " + folly_flags,
   }
   s.pod_target_xcconfig = {
       "DEFINES_MODULE" => "YES",
@@ -46,7 +46,11 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.ios.vendored_libraries = "./ios/multiply.a"
-
+  s.dependency "React"
+  s.dependency "React-Core"
+  s.dependency "React-jsi"
+  s.dependency "ReactCommon/turbomodule/core"
+  s.dependency "React-callinvoker"
+  s.dependency "#{folly_prefix}Folly"
 
 end
