@@ -34,19 +34,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		C1098678276E53D5000E84B9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* MultiplyModuleExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyModuleExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +48,9 @@
 		47F7ED3B7971BE374F7B8635 /* Pods-MultiplyModuleExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiplyModuleExample.debug.xcconfig"; path = "Target Support Files/Pods-MultiplyModuleExample/Pods-MultiplyModuleExample.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MultiplyModuleExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B764C934653260B6D0F8C18B /* libPods-MultiplyModuleExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MultiplyModuleExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C169BE86276E6D9400E9A3AD /* libmultiply.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmultiply.a; path = ../../multiply/target/universal/release/libmultiply.a; sourceTree = "<group>"; };
+		C169BE88276E6E0800E9A3AD /* multiply.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = multiply.a; path = ../../multiply/target/universal/release/multiply.a; sourceTree = "<group>"; };
+		C1C86919276F78E60056884F /* Multiply.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Multiply.xcframework; path = ../../ios/Frameworks/Multiply.xcframework; sourceTree = "<group>"; };
 		E00ACF0FDA8BF921659E2F9A /* Pods-MultiplyModuleExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiplyModuleExample.release.xcconfig"; path = "Target Support Files/Pods-MultiplyModuleExample/Pods-MultiplyModuleExample.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -115,6 +105,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1C86919276F78E60056884F /* Multiply.xcframework */,
+				C169BE88276E6E0800E9A3AD /* multiply.a */,
+				C169BE86276E6D9400E9A3AD /* libmultiply.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				B764C934653260B6D0F8C18B /* libPods-MultiplyModuleExample.a */,
 			);
@@ -194,7 +187,6 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				C1D60D28B925C94BD88E79D7 /* [CP] Copy Pods Resources */,
-				C1098678276E53D5000E84B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
