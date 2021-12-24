@@ -16,5 +16,5 @@ using namespace react;
 NativeMultiply::NativeMultiply(std::shared_ptr<CallInvoker> jsInvoker): MultiplyModuleCxxSpecJSI(jsInvoker) {};
 
 double NativeMultiply::multiply(jsi::Runtime &rt, double a, double b) {
-    return rust_multiply();
+    return rust_multiply(a, b);
 }
