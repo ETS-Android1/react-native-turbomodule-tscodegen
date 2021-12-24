@@ -5,7 +5,7 @@
 
 # Worlds Fastest rust to React Native Multiply Library
 
-![img](./assets/Screenshot 2021-12-24 at 12.17.22.png)
+![img](./assets/trust.png)
 
 ## Description
 
