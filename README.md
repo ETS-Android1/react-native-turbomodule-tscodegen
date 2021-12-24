@@ -1,15 +1,28 @@
 # WORK IN PROGRESS
 
-> IOS IS WORKING
-> ANDROID IS BEING WORKED ON
+> IOS SIM IS WORKING
+> IOS DEVICE IS WORKING
+> ANDROID SIM IS WORKING
+> ANDROID DEVICE NOT TESTED YET
 
-# Worlds Fastest React Native Multiply Library
+# Worlds Fastest rust to React Native Multiply Library
+
+![img](./assets/trust.png)
 
 ## Description
 
-This is a library which uses [react-native-tscodegen](https://github.com/microsoft/react-native-tscodegen) in combination with [turboModules](https://github.com/react-native-community/discussions-and-proposals/blob/master/proposals/0002-Turbo-Modules.md). This demo application simply calls a method registered at c++ from the JS side. It is completely synchronous, it could also be asynchronous, and the performance is rather good.
+This is a library which uses [react-native-tscodegen](https://github.com/microsoft/react-native-tscodegen) in combination with [turboModules](https://github.com/react-native-community/discussions-and-proposals/blob/master/proposals/0002-Turbo-Modules.md) and rust!. This demo application simply calls a method registered in rust via c++ from the JS side. It is completely synchronous, it could also be asynchronous, and the performance is rather good.
 
 ## Getting started
+
+> TODO
+
+### Generating the framework
+
+```sh
+cd multiply
+make all
+```
 
 This demo is not finished and not perfect. To get started you need to have the react native environment setup complete and some basic knowledge of turbomodules.
 
