@@ -4,11 +4,13 @@ set (CMAKE_VERBOSE_MAKEFILE ON)
 set (CMAKE_CXX_STANDARD 14)
 
 set(build_DIR ${CMAKE_SOURCE_DIR}/build)
+set(LIB_DIR ${CMAKE_SOURCE_DIR}/libs)
 
 # the name for our library
 set(PACKAGE_NAME "my_turbo_utils")  
 
 include_directories(
+        ${lib_DIR}
         ../lib/cpp-generated
         ../cpp
         ../node_modules/react-native/React
@@ -22,6 +24,12 @@ include_directories(
         ../node_modules/react-native/ReactCommon/react/nativemodule/core/ReactCommon
         ../node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/turbomodule/core/jni/ReactCommon
 )
+
+# Add the correct multiply static library
+add_library( libmultiply STATIC IMPORTED )
+set_target_properties( libmultiply 
+  PROPERTIES
+  IMPORTED_LOCATION ${LIB_DIR}/${ANDROID_ABI}/libmultiply.a )
 
 # find fbjni package
 find_package(fbjni REQUIRED CONFIG)
@@ -44,6 +52,7 @@ target_link_libraries(
         fbjni::fbjni 
         android 
         log
+        libmultiply
 )
 
 # A workaround to avoid runtime error:
