@@ -2,9 +2,6 @@
 // Every function gets the JSI runtime. For most methods we do not
 // need this.
 
-// For opening dynamic libraries
-#include<dlfcn.h>
-
 #include "react-native-multiply-module.h"
 #include "../lib/cpp-generated/NativeModules.cpp"
 #include "Logging.h"
