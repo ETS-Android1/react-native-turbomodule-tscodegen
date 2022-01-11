@@ -24,22 +24,33 @@ RCT_EXPORT_MODULE()
 // Entry point for registering this module
 - (void)setBridge:(RCTBridge *)bridge {
   _bridge = bridge;
-  
-  LOG("JSI Module initialization in setBridge()");
+  [self installLibrary];
+}
 
-  // Do not do anything if we can't access the bridge
-  // e.g. Chrome Debugger mode
-  RCTCxxBridge *cxxBridge = (RCTCxxBridge *)self.bridge;
-  if (!cxxBridge.runtime) {
-    return;
-  }
-  
-  // get the jsCallinvoker
-  jsi::Runtime* jsiRuntime = (jsi::Runtime *)cxxBridge.runtime;
-  auto callInvoker = bridge.jsCallInvoker;
-  
-  // installs the turbomodule
-  utils::installTurboModule(*jsiRuntime, callInvoker);
+- (void)installLibrary {
+    LOG("Installing library...");
+    RCTCxxBridge *cxxBridge = (RCTCxxBridge *)self.bridge;
+
+    if (!cxxBridge.runtime) {
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.001 * NSEC_PER_SEC),
+                     dispatch_get_main_queue(), ^{
+          /** Hack Warning
+           When refreshing the app while debugging, the setBridge
+           method is called too soon. The runtime is not ready yet
+           quite often. We need to install library as soon as runtime
+           becomes available.
+           */
+          [self installLibrary];
+      });
+      return;
+    }
+    
+    // get the jsCallinvoker
+    jsi::Runtime* jsiRuntime = (jsi::Runtime *)cxxBridge.runtime;
+    auto callInvoker = _bridge.jsCallInvoker;
+    
+    // installs the turbomodule
+    utils::installTurboModule(*jsiRuntime, callInvoker);
 }
 
 @end
