@@ -1,9 +1,10 @@
 # WORK IN PROGRESS
 
-> IOS SIM IS WORKING
-> IOS DEVICE IS WORKING
-> ANDROID SIM IS WORKING
-> ANDROID DEVICE NOT TESTED YET
+> iOS simulator and device are working
+
+> Android simulator and device are working
+
+---
 
 # Worlds Fastest rust to React Native Multiply Library
 
