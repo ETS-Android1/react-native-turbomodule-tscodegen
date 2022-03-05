@@ -1,0 +1,7 @@
+{
+  "libraryName": "MultiplyModule",
+  "outputDirectory": "./lib/cpp-generated",
+  "moduleSpecName": "MultiplyModule",
+  "generators": ["modulesCxx"],
+  "inputFile": "./src/turboModule.ts"
+}
